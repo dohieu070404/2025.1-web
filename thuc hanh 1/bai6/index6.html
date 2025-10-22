@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Coffee</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style6.css">
 </head>
 <body>
   <header>
@@ -38,17 +38,23 @@
         <option value="desc">Giảm dần</option>
       </select>
 
+      <select id="filterPrice">
+        <option value="">-- Lọc theo khoảng giá --</option>
+        <option value="1">Dưới 50.000₫</option>
+        <option value="2">50.000₫ - 100.000₫</option>
+        <option value="3">Trên 100.000₫</option>
+      </select>
+
       <button id="editModeBtn">Chỉnh sửa / Xóa</button>
       <button id="toggleFormBtn">Thêm sản phẩm</button>
     </section>
 
     <section id="product-list"></section>
 
+    <!-- FORM -->
     <div class="form-overlay hidden" id="formOverlay"></div>
-
     <form id="addProductForm" class="add-product-form hidden" autocomplete="off">
       <h3 id="formTitle">Thêm sản phẩm mới</h3>
-
       <label for="newName">Tên sản phẩm:</label>
       <input type="text" id="newName" required>
 
@@ -62,7 +68,6 @@
       <input type="text" id="newImg" placeholder="https://...jpg">
 
       <p id="errorMsg" style="color:red;"></p>
-
       <div class="form-buttons">
         <button type="submit">Lưu</button>
         <button type="button" id="cancelBtn">Hủy</button>
@@ -74,6 +79,6 @@
     <p>2025 The Coffee by Hiếu Đỗ</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script6.js"></script>
 </body>
 </html>

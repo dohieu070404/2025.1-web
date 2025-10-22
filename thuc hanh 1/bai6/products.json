@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Cà phê Arabica",
+    "desc": "Hạt cà phê hảo hạng từ vùng cao nguyên Đà Lạt, hương thơm thanh, vị chua nhẹ đặc trưng.",
+    "price": 70000,
+    "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800"
+  },
+  {
+    "name": "Cà phê Robusta",
+    "desc": "Đậm đà, vị đắng mạnh mẽ, hương vị truyền thống Việt Nam – năng lượng cho ngày mới.",
+    "price": 60000,
+    "img": "https://images.unsplash.com/photo-1521302080371-6c5a41efecb1?w=800"
+  },
+  {
+    "name": "Cold Brew",
+    "desc": "Cà phê ủ lạnh trong 12 giờ, vị dịu nhẹ, hậu ngọt tự nhiên, phù hợp mùa hè.",
+    "price": 85000,
+    "img": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800"
+  },
+  {
+    "name": "Espresso",
+    "desc": "Cà phê Ý nguyên chất, chiết xuất áp suất cao, lớp crema vàng óng đẹp mắt.",
+    "price": 95000,
+    "img": "https://images.unsplash.com/photo-1498804103079-a6351b050096?w=800"
+  },
+  {
+    "name": "Cappuccino",
+    "desc": "Kết hợp hoàn hảo giữa Espresso, sữa nóng và bọt sữa – hương vị béo ngậy.",
+    "price": 99000,
+    "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800"
+  },
+  {
+    "name": "Latte",
+    "desc": "Cà phê sữa Ý vị nhẹ, lớp sữa mịn, dễ uống, thích hợp cho buổi sáng nhẹ nhàng.",
+    "price": 100000,
+    "img": "https://images.unsplash.com/photo-1523942839745-7848d4b7d33c?w=800"
+  },
+  {
+    "name": "Mocha",
+    "desc": "Sự hòa quyện giữa cà phê, sữa và chocolate, mang lại cảm giác ngọt ngào và quyến rũ.",
+    "price": 110000,
+    "img": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800"
+  },
+  {
+    "name": "Bạc xỉu",
+    "desc": "Đồ uống đậm phong vị Sài Gòn, sữa đặc nhiều hơn cà phê, ngọt ngào, dễ uống.",
+    "price": 55000,
+    "img": "https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?w=800"
+  },
+  {
+    "name": "Cà phê trứng",
+    "desc": "Đặc sản Hà Nội: cà phê kết hợp lòng đỏ trứng đánh bông, hương vị béo ngậy, độc đáo.",
+    "price": 90000,
+    "img": "https://images.unsplash.com/photo-1612198082667-8f9b9e9e7b64?w=800"
+  }
+]
