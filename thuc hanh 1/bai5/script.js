@@ -1,4 +1,4 @@
-// ====== BÀI 3 & 4: XỬ LÝ DOM, SỰ KIỆN, THÊM SẢN PHẨM ======
+
 const toggleBtn = document.getElementById('toggleFormBtn');
 const addForm = document.getElementById('addProductForm');
 const cancelBtn = document.getElementById('cancelBtn');

@@ -62,7 +62,7 @@ function hideForm() {
   error.textContent = "";
 }
 
-// === SỰ KIỆN NÚT THÊM / HỦY / NỀN MỜ ===
+// === SỰ KIỆN NÚT THÊM / HỦY 
 toggleBtn.addEventListener('click', showForm);
 cancelBtn.addEventListener('click', hideForm);
 overlay.addEventListener('click', hideForm);

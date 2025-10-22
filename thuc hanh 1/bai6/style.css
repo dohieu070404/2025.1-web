@@ -71,31 +71,42 @@ nav a:hover { color: #ffd480; }
   text-align: center;
   margin: 40px 0;
 }
-.search-bar input, .search-bar button {
+.search-bar input {
+  width: 45%;
   padding: 12px;
   border-radius: 25px;
   border: 1px solid #ccc;
-  transition: all 0.3s;
-}
-.search-bar input {
-  width: 50%;
   outline: none;
+  transition: all 0.3s;
 }
 .search-bar input:focus {
   border-color: #c47a2c;
   box-shadow: 0 0 5px rgba(196,122,44,0.4);
 }
-.search-bar button {
-  margin-left: 6px;
-  border: none;
+
+.search-bar button,
+.search-bar select {
+  padding: 10px 16px;
+  margin: 6px;
+  border-radius: 25px;
+  border: 1px solid #c47a2c;
   background: #4b2e15;
   color: #fff;
-  cursor: pointer;
   font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
-.search-bar button:hover {
-  background: #6a3f1d;
-  transform: scale(1.03);
+.search-bar button:hover,
+.search-bar select:hover {
+  transform: scale(1.04);
+}
+.search-bar select {
+  background: #fff;
+  color: #4b2e15;
+}
+.search-bar select:focus {
+  outline: none;
+  box-shadow: 0 0 6px rgba(196,122,44,0.5);
 }
 
 /* ===== DANH SÁCH SẢN PHẨM ===== */
@@ -139,8 +150,42 @@ nav a:hover { color: #ffd480; }
   font-weight: 600;
 }
 
+.product-item div {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+.product-item div button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.product-item div button:first-child {
+  background: #f7a753;
+  color: #fff;
+}
+.product-item div button:first-child:hover {
+  background: #d8914a;
+  transform: scale(1.05);
+}
+.product-item div button:last-child {
+  background: #d34023;
+  color: #fff;
+}
+.product-item div button:last-child:hover {
+  background: #c0573f;
+  transform: scale(1.05);
+}
+
+#editModeBtn.active {
+  background: #fcb870;
+}
+
 /* ===== FORM THÊM SẢN PHẨM ===== */
-/* ===== NỀN MỜ ===== */
 .form-overlay {
   position: fixed;
   top: 0;
@@ -154,13 +199,11 @@ nav a:hover { color: #ffd480; }
   visibility: hidden;
   transition: opacity 0.3s ease;
 }
-
 .form-overlay.active {
   opacity: 1;
   visibility: visible;
 }
 
-/* ===== FORM THÊM SẢN PHẨM ===== */
 .add-product-form {
   position: fixed;
   top: 50%;
@@ -176,25 +219,21 @@ nav a:hover { color: #ffd480; }
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
 .add-product-form.active {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
 }
-
 .add-product-form h3 {
   text-align: center;
   color: #4b2e15;
   margin-bottom: 15px;
 }
-
 .add-product-form label {
   display: block;
   font-weight: 500;
   margin-bottom: 5px;
 }
-
-.add-product-form :is(input, textarea, select) {
+.add-product-form :is(input, textarea) {
   width: 90%;
   padding: 15px;
   margin-bottom: 12px;
@@ -203,21 +242,18 @@ nav a:hover { color: #ffd480; }
   font-size: 0.95em;
   transition: border-color 0.3s;
 }
-
-.add-product-form :is(input, textarea, select):focus {
+.add-product-form :is(input, textarea):focus {
   border-color: #c47a2c;
   outline: none;
 }
-
 .form-buttons {
   display: flex;
   justify-content: space-between;
 }
-
-button[type="submit"], button[type="button"] {
+ button[type="button"] {
   flex: 1;
   margin: 5px;
-  background: #4b2e15;
+  background: #aa3815;
   color: #fff;
   border: none;
   padding: 10px;
@@ -226,16 +262,27 @@ button[type="submit"], button[type="button"] {
   font-weight: 500;
   transition: all 0.3s;
 }
-
-button[type="submit"]:hover, button[type="button"]:hover {
-  background: #6a3f1d;
+button[type="submit"]{
+  flex: 1;
+  margin: 5px;
+  background: #498611;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+button[type="button"]:hover {
+  background: #8a2709;
   transform: scale(1.03);
 }
-
-.hidden {
-  display: none;
+button[type="submit"]:hover{
+  background: #145f14;
+  transform: scale(1.03);
 }
-
+.hidden { display: none; }
 
 /* ===== FOOTER ===== */
 footer {
@@ -256,26 +303,10 @@ footer {
   #product-list { grid-template-columns: 1fr; }
   form { width: 90%; }
 }
-@media (max-width: 768px) {
-  .add-product-form {
-    width: 92%;
-    padding: 20px 15px;
-  }
-}
-
-/* Hiệu ứng fade-in khi thêm sản phẩm */
 .fade-in {
-  animation: fadeInUp 0.4s ease;
+  animation: fadeInUp 0.1s ease;
 }
-
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
