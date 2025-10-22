@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Coffee </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <h1 class="logo">The Coffee</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Trang chủ</a></li>
+          <li><a href="#">Sản phẩm</a></li>
+          <li><a href="#">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero section -->
+    <section class="hero">
+      <div class="hero-overlay">
+        <h2>Khơi dậy nguồn năng lượng cùng The Coffee</h2>
+        <p>Thưởng thức cà phê nguyên chất, tận hưởng từng khoảnh khắc trong ngày.</p>
+      </div>
+    </section>
+
+    <!-- Thanh tìm kiếm -->
+    <section class="search-bar">
+      <input type="text" id="searchInput" placeholder=" Tìm kiếm sản phẩm...">
+      <button id="searchBtn">Tìm</button>
+      <button id="addProductBtn">Thêm sản phẩm</button>
+    </section>
+
+    <!-- Danh sách sản phẩm -->
+    <section id="product-list">
+      <article class="product-item">
+        <img src="/web/2025.1-web/arabica.jpg" alt="Arabica">
+        <h3 class="product-name">Cà phê Arabica</h3>
+        <p class="product-desc">Hương vị nhẹ nhàng, chua thanh, mùi thơm tinh tế.</p>
+        <p class="product-price">Giá: 120.000₫</p>
+      </article>
+
+      <article class="product-item">
+        <img src="/web/2025.1-web/Robusta.jpg" alt="Robusta">
+        <h3 class="product-name">Cà phê Robusta</h3>
+        <p class="product-desc">Đậm đà, mạnh mẽ, vị đắng đặc trưng Việt Nam.</p>
+        <p class="product-price">Giá: 100.000₫</p>
+      </article>
+
+      <article class="product-item">
+        <img src="/web/2025.1-web/Coldbrew.jpg" alt="Blend">
+        <h3 class="product-name">Coldbrew</h3>
+        <p class="product-desc">Sự kết hợp hoàn hảo giữa Arabica và Robusta.</p>
+        <p class="product-price">Giá: 150.000₫</p>
+      </article>
+    </section>
+
+    <!-- Form thêm sản phẩm -->
+    <form id="addProductForm" class="hidden">
+      <h3>Thêm sản phẩm mới</h3>
+      <label for="newName">Tên sản phẩm:</label>
+      <input type="text" id="newName" required>
+
+      <label for="newPrice">Giá (₫):</label>
+      <input type="number" id="newPrice" required>
+
+      <label for="newDesc">Mô tả:</label>
+      <textarea id="newDesc" rows="3"></textarea>
+
+      <p id="errorMsg" style="color:red;"></p>
+      <button type="submit">Thêm</button>
+      <button type="button" id="cancelBtn">Hủy</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>Design by hieeus </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
