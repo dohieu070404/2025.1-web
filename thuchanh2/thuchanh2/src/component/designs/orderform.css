@@ -1,0 +1,94 @@
+.overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.order-popup {
+  background: #fffaf3;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  animation: popupIn 0.4s ease;
+}
+
+.order-popup h2 {
+  color: #4b2e15;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.order-popup input,
+.order-popup textarea,
+.order-popup select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #cfa46a;
+  font-family: inherit;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+.order-popup input:focus,
+.order-popup textarea:focus,
+.order-popup select:focus {
+  outline: none;
+  border-color: #b9824a;
+}
+
+textarea {
+  resize: none;
+}
+
+.option-group {
+  text-align: left;
+  color: #4b2e15;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.summary {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 18px;
+  color: #4b2e15;
+  font-weight: 600;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.save-btn, .cancel-btn {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.save-btn {
+  background-color: #cfa46a;
+  color: #fff;
+}
+.cancel-btn {
+  background-color: #dcd0ba;
+  color: #4b2e15;
+}
+.save-btn:hover { background-color: #b9824a; }
+.cancel-btn:hover { background-color: #c6b59d; }
+
+@keyframes popupIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}

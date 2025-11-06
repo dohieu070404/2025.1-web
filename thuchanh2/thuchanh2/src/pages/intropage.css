@@ -1,0 +1,270 @@
+.intro-wrapper {
+  font-family: 'Poppins', sans-serif;
+  color: #3e2a18;
+  background-color: #fffaf3;
+  overflow-x: hidden;
+}
+
+.intro-hero {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  background: 
+    linear-gradient(to top, rgba(40, 20, 5, 0.7), rgba(0, 0, 0, 0.3)),
+    url('/assets/hero-coffee.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.intro-hero-content {
+  max-width: 700px;
+  padding: 20px;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.intro-hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.intro-hero p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #f5f3f1;
+}
+
+.intro-story {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.intro-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.intro-story h2 {
+  .intro-wrapper { color: #3e2a18; }
+}
+
+.intro-story {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.intro-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.intro-story h2 {
+  color: #4b2e15;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.intro-story p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #6b4a2b;
+  margin-bottom: 15px;
+}
+
+.intro-values {
+  background: linear-gradient(to bottom, #f7efe7, #fffaf3);
+  padding: 80px 20px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.value-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+.value-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.value-card h3 {
+  font-size: 20px;
+  color: #4b2e15;
+  margin-bottom: 10px;
+}
+
+.value-card p {
+  color: #6b4a2b;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-hero h1 {
+    font-size: 34px;
+  }
+  .intro-hero p {
+    font-size: 15px;
+  }
+  .intro-story h2 {
+    font-size: 26px;
+  }
+}
+.intro-wrapper {
+  font-family: 'Poppins', sans-serif;
+  color: #3e2a18;
+  background-color: #fffaf3;
+  overflow-x: hidden;
+}
+
+.intro-hero {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  background: 
+    linear-gradient(to top, rgba(40, 20, 5, 0.7), rgba(0, 0, 0, 0.3)),
+    url('/assets/hero-coffee.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.intro-hero-content {
+  max-width: 700px;
+  padding: 20px;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.intro-hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.intro-hero p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #f5f3f1;
+}
+
+.intro-story {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.intro-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.intro-story h2 {
+  color: #4b2e15;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.intro-story p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #6b4a2b;
+  margin-bottom: 15px;
+}
+
+.intro-values {
+  background: linear-gradient(to bottom, #f7efe7, #fffaf3);
+  padding: 80px 20px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+.value-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+.value-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.value-card h3 {
+  font-size: 20px;
+  color: #4b2e15;
+  margin-bottom: 10px;
+}
+
+.value-card p {
+  color: #6b4a2b;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-hero h1 {
+    font-size: 34px;
+  }
+  .intro-hero p {
+    font-size: 15px;
+  }
+  .intro-story h2 {
+    font-size: 26px;
+  }
+}

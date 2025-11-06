@@ -1,0 +1,60 @@
+.adminApp-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #fffaf3;
+  color: #3e2a18;
+  font-family: Poppins, system-ui, Arial;
+}
+
+.adminApp-sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, #4b2e15, #6f4e28);
+  color: #fff;
+  padding: 22px 16px;
+}
+
+.adminApp-brand {
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.adminApp-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.adminApp-nav li {
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.adminApp-nav li:hover,
+.adminApp-nav li.active {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.adminApp-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.adminApp-header {
+  background: #fff;
+  border-bottom: 1px solid #eadfcd;
+  padding: 14px 20px;
+}
+
+.adminApp-header h2 {
+  margin: 0;
+  color: #4b2e15;
+}
+
+.adminApp-content {
+  padding: 18px;
+  overflow: auto;
+}

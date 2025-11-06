@@ -1,0 +1,117 @@
+.contact-wrapper {
+  font-family: 'Poppins', sans-serif;
+  color: #3e2a18;
+  background-color: #fffaf3;
+  min-height: 100vh;
+}
+
+.contact-hero {
+  background: linear-gradient(to top, rgba(40, 20, 5, 0.7), rgba(0, 0, 0, 0.3)),
+              url('/assets/coffee4.jpg') center/cover no-repeat;
+  height: 55vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-content {
+  max-width: 700px;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 46px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #f8f6f3;
+}
+
+.contact-section {
+  padding: 80px 20px;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.contact-info, .contact-form {
+  flex: 1 1 400px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.contact-info:hover, .contact-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.contact-info h2, .contact-form h2 {
+  color: #4b2e15;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  color: #6b4a2b;
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 6px;
+  border: 1px solid #d1b38a;
+  font-family: inherit;
+  background-color: #fffaf3;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #b98a55;
+  background-color: #fff;
+}
+
+.contact-form button {
+  background-color: #cfa46a;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #b9824a;
+  transform: translateY(-2px);
+}
+
+@m

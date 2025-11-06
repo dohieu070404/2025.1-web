@@ -1,0 +1,133 @@
+.footer {
+  padding: 2rem 1rem;
+  color: #f9f6f2;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  background:
+    linear-gradient(to top, rgba(35, 17, 6, 0.95), rgba(78, 49, 17, 0.85)),
+    url('/assets/anhnen.jpg') center/cover no-repeat;
+  background-blend-mode: overlay;
+  backdrop-filter: blur(4px);
+  transition: all 0.4s ease;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-left,
+.footer-right {
+  flex: 1;
+  min-width: 280px;
+}
+
+.footer-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffe8b6;
+  margin-bottom: 0.5rem;
+}
+
+.footer-subtitle {
+  margin-bottom: 1.2rem;
+  color: #f3e8d3;
+  font-weight: 500;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-icon:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.25);
+}
+.footer-icon.fb:hover { color: #1877f2; }
+.footer-icon.yt:hover { color: #ff0000; }
+.footer-icon.tk:hover { color: #000; background: #fff; }
+.footer-icon.ig:hover { 
+  color: #e1306c; 
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.footer-link-group {
+  margin-bottom: 1rem;
+}
+
+.footer-link-title {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  display: block;
+  color: #f7e5b0;
+}
+
+.footer-link-group ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-link-group li {
+  margin-bottom: 0.4rem;
+}
+
+.footer-link-group a {
+  color: #f0f0f0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link-group a:hover {
+  color: #ffde9d;
+}
+
+.footer-separator {
+  margin: 2rem 0;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-weight: 500;
+  font-size: 13px;
+  color: #f7e6cc;
+}
+
+@media (max-width: 768px) {
+  .footer-columns {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+}

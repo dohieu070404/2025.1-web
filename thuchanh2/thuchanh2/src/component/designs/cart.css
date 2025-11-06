@@ -1,0 +1,87 @@
+.cart-container {
+  margin: 40px auto;
+  max-width: 900px;
+  background-color: #fffef8;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  animation: fadeIn 0.4s ease;
+}
+
+.cart-container h2 {
+  color: #4b2e15;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+th, td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 15px;
+}
+th {
+  background-color: #f7e7cd;
+  color: #4b2e15;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+td button {
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+td button:hover {
+  transform: scale(1.1);
+}
+
+.remove-btn {
+  background-color: #e8835d;
+  color: #fff;
+}
+.remove-btn:hover {
+  background-color: #d36b45;
+}
+
+td span {
+  margin: 0 10px;
+  font-weight: 600;
+}
+
+.order-btn {
+  background-color: #cfa46a;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.order-btn:hover {
+  background-color: #b9824a;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+
+@media (max-width: 768px) {
+  table {
+    font-size: 13px;
+  }
+  th, td {
+    padding: 8px;
+  }
+}

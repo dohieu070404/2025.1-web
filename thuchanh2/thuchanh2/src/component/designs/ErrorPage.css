@@ -1,0 +1,40 @@
+.error-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #4b2e15, #7b5531);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.error-page h1 {
+  font-size: 28px;
+  margin-top: 20px;
+  color: #ffe8b6;
+}
+
+.error-page p {
+  margin: 10px 0 25px;
+  color: #f8e9d0;
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+.error-btn {
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: #c49a6c;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.error-btn:hover {
+  background-color: #b37b48;
+  transform: translateY(-3px);
+}

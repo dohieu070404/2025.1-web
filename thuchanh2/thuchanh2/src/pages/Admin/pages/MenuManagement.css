@@ -1,0 +1,164 @@
+.menuMng-wrap {
+  display: grid;
+  gap: 14px;
+}
+
+.menuMng-toolbar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.menuMng-search {
+  flex: 1;
+  min-width: 220px;
+  padding: 10px 12px;
+  border: 1px solid #e5d7c4;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.menuMng-addBtn {
+  background: #cfa46a;
+  color: #fff;
+  border: 0;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.menuMng-addBtn:hover {
+  background: #b9824a;
+}
+
+.menuMng-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.menuMng-card {
+  background: #fff;
+  border: 1px solid #ecdcc7;
+  border-radius: 12px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 160px auto auto;
+}
+
+.menuMng-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.menuMng-meta {
+  padding: 10px 12px;
+}
+
+.menuMng-meta h4 {
+  margin: 0 0 6px;
+  color: #4b2e15;
+}
+
+.menuMng-cat {
+  margin: 0 0 6px;
+  color: #8a6a48;
+  font-size: 13px;
+}
+
+.menuMng-price {
+  margin: 0;
+  font-weight: 800;
+  color: #4b2e15;
+}
+
+.menuMng-actions {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px 14px;
+}
+
+.menuMng-btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.menuMng-btnMuted {
+  background: #dcd0ba;
+  color: #4b2e15;
+}
+
+.menuMng-btnDanger {
+  background: #e8835d;
+  color: #fff;
+}
+
+.menuMng-btnPrimary {
+  background: #cfa46a;
+  color: #fff;
+}
+
+.menuMng-btn:hover {
+  filter: brightness(0.96);
+  transform: translateY(-1px);
+}
+
+.menuMng-empty {
+  background: #fff;
+  border: 1px dashed #ecdcc7;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  color: #6b4a2b;
+}
+
+.menuMng-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.menuMng-modal {
+  width: 92%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+}
+
+.menuMng-modal h3 {
+  margin: 0 0 12px;
+  color: #4b2e15;
+}
+
+.menuMng-modal form {
+  display: grid;
+  gap: 10px;
+}
+
+.menuMng-modal input,
+.menuMng-modal select,
+.menuMng-modal textarea {
+  padding: 10px 12px;
+  border: 1px solid #e5d7c4;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.menuMng-actionsRow {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 6px;
+}

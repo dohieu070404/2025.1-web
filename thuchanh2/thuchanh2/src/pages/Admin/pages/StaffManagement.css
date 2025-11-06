@@ -1,0 +1,140 @@
+.staff-wrap {
+  display: grid;
+  gap: 14px;
+}
+
+.staff-toolbar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.staff-search {
+  flex: 1;
+  min-width: 260px;
+  padding: 10px 12px;
+  border: 1px solid #e5d7c4;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.staff-addBtn {
+  background: #cfa46a;
+  color: #fff;
+  border: 0;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.staff-addBtn:hover {
+  background: #b9824a;
+}
+
+.staff-card {
+  background: #fff;
+  border: 1px solid #ecdcc7;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.staff-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.staff-table th,
+.staff-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee2d3;
+  text-align: left;
+}
+
+.staff-table th {
+  background: #f7e7cd;
+  color: #4b2e15;
+}
+
+.staff-cap {
+  text-transform: capitalize;
+}
+
+.staff-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.staff-btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.staff-btnMuted {
+  background: #dcd0ba;
+  color: #4b2e15;
+}
+
+.staff-btnDanger {
+  background: #e8835d;
+  color: #fff;
+}
+
+.staff-btnPrimary {
+  background: #cfa46a;
+  color: #fff;
+}
+
+.staff-btn:hover {
+  filter: brightness(0.96);
+  transform: translateY(-1px);
+}
+
+.staff-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.staff-modal {
+  width: 92%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+}
+
+.staff-modal h3 {
+  margin: 0 0 12px;
+  color: #4b2e15;
+}
+
+.staff-modal form {
+  display: grid;
+  gap: 10px;
+}
+
+.staff-modal input,
+.staff-modal select,
+.staff-modal textarea {
+  padding: 10px 12px;
+  border: 1px solid #e5d7c4;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.staff-actionsRow {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 6px;
+}
