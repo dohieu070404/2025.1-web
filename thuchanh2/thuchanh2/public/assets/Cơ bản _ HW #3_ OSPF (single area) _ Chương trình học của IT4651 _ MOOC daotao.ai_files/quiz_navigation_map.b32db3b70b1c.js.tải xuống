@@ -1,0 +1,277 @@
+window.onload = function () {
+    // Find all the seq_contents divs on the page
+    var seqContents = document.querySelectorAll('[id^="seq_contents_"]');
+
+    // Loop through each seq_contents div
+    var problemIds = [];
+    seqContents.forEach(function (seqContent, seqIndex) {
+        // Create a temporary div element and set its innerHTML to the content of the seq_contents div
+        var tempDiv = document.createElement('div');
+        tempDiv.innerHTML = seqContent.textContent;
+
+        // Find all the problems-wrapper elements within the temporary div
+        var problemsWrappers = tempDiv.querySelectorAll(
+            '.xblock-student_view-problem, \
+            .xblock-student_view-openassessment, \
+            .xblock-student_view-coderunner, \
+            .xblock-student_view-drag-and-drop-v2, \
+            .xblock-student_view-essay_question'
+        );
+
+        // Extract the problem IDs from the data-usage-id attribute of each problems-wrapper element
+        problemsWrappers.forEach(function (wrapper) {
+            var problemId = wrapper.getAttribute('data-usage-id');
+            problemIds.push({
+                seqIndex: seqIndex,
+                problemId: problemId
+            });
+        });
+    });
+
+    var xblockHandler = getXBlockHandlerUrl();
+
+    collectProblems();
+
+    getQuizMapAndRender();
+
+    addFlexNavigator();
+
+    // We cant use runtime handler url because it is not available if the unit contain xblock is not loaded
+    function getXBlockHandlerUrl() {
+        var XBlockId;
+        var vertModDiv = document.querySelector('.vert-mod');
+        var vertDiv = vertModDiv.querySelectorAll('.vert');
+        for (var i = 0; i < vertDiv.length; i++) {
+            var dataId = vertDiv[i].getAttribute('data-id');
+            if (dataId && dataId.indexOf('quiz_navigation') !== -1) {
+                XBlockId = dataId;
+                break; // break out of the loop
+            }
+        }
+        // If the XBlock ID is not found, find it from seq_contents
+        if (!XBlockId) {
+            var seqContents = document.querySelectorAll('[id^="seq_contents_"]');
+            for (var i = 0; i < seqContents.length; i++) {
+                // Create a temporary div element and set its innerHTML to the content of the seq_contents div
+                var tempDiv = document.createElement('div');
+                tempDiv.innerHTML = seqContents[i].textContent;
+                var vertModDivTemp = tempDiv.querySelector('.vert-mod');
+                var vertDivTemp = vertModDivTemp.querySelectorAll('.vert');
+                for (var j = 0; j < vertDivTemp.length; j++) {
+                    var dataId = vertDivTemp[j].getAttribute('data-id');
+                    if (dataId && dataId.indexOf('quiz_navigation') !== -1) {
+                        XBlockId = dataId;
+                        break; // break out of the loop
+                    }
+                }
+            }
+        }
+        var currentPath = window.location.pathname;
+        var courseUrlPrefix = currentPath.split('/').slice(0, 3).join('/');
+        var handlerUrl = courseUrlPrefix + '/xblock/' + XBlockId + '/handler/';
+        return handlerUrl;
+    }
+
+    function collectProblems() {
+        // Send a POST request with the problem IDs to the "collect_problems" handler using AJAX
+        $.ajax({
+            url: xblockHandler + 'collect_problems/',
+            type: 'POST',
+            data: JSON.stringify({ problemIds: problemIds }),
+            contentType: 'application/json',
+            success: function (data) {
+                console.log('Problem IDs collected:', problemIds);
+            }
+        });
+    }
+
+    function getQuizMapAndRender() {
+        // Make an AJAX call to the /get_quiz_map API
+        var username = '';
+        var email = '';
+        var userId = ''
+        var userAvatar = '';
+        $.ajax({
+            url: xblockHandler + 'get_user_info/',
+            type: 'POST',
+            data: JSON.stringify({}),
+            async: false,
+            contentType: 'application/json',
+            success: function (data) {
+                userId = data && data['user_info'] && data['user_info']['id'] || '';
+                username = data && data['user_info'] && data['user_info']['username'] || '';
+                email = data && data['user_info'] && data['user_info']['email'] || '';
+                userAvatar  = data && data['user_info'] && data['user_info']['user_avatar'] || '';
+            },
+            error: function (xhr, status, error) {
+                console.error('Failed to get user info, ', error);
+            }
+        })
+
+        $.ajax({
+            url: xblockHandler + 'get_quiz_map/',
+            type: 'POST',
+            data: JSON.stringify({ problemIds: problemIds }),
+            async: false,
+            success: function (response) {
+                var quizMap = response.quiz_map;
+                if (!quizMap || quizMap.length === 0) {
+                    // Handle the case where quizMap is empty or null
+                    console.log('quizMap is empty or null');
+                } else {
+                    // Create a new div element to hold the quiz map
+                    var quizMapWrapper = document.createElement('div');
+                    quizMapWrapper.className = 'quiz-map-wrapper';
+                    var quizMapContainer = document.createElement('div');
+                    quizMapContainer.className = 'quiz-map-container';
+                    var quizMapDiv = document.createElement('div');
+                    quizMapDiv.className = 'quiz-map';
+
+                    var userInfoDiv = document.createElement('div');
+                    userInfoDiv.className = 'quiz-map-user-info';
+                    var userNameDiv = document.createElement('span');
+                    userNameDiv.textContent = username;
+                    var emailDiv = document.createElement('span');
+                    emailDiv.textContent = email;
+                    userInfoDiv.appendChild(userNameDiv);
+                    userInfoDiv.appendChild(document.createElement('br'))
+                    userInfoDiv.appendChild(emailDiv);
+                    userInfoDiv.appendChild(document.createElement('br'))
+                    if (userAvatar != '') {
+                        var avatarImg = document.createElement('img');
+                        avatarImg.src = "data:image/png;base64," + userAvatar;
+                        avatarImg.className = 'user-avatar';
+                        userInfoDiv.appendChild(avatarImg);
+                    }
+                    quizMapContainer.appendChild(userInfoDiv);
+
+
+                    // Iterate over the quiz map data and create a quiz box for each quiz
+                    quizMap.forEach(function (quiz, index) {
+                        var quizBox = document.createElement('div');
+                        quizBox.className = 'quiz-box';
+                        quizBox.setAttribute('data-usage-id', quiz.id.problemId);
+                        quizBox.setAttribute('data-problem-sequence', quiz.id.seqIndex);
+                        quizBox.textContent = index + 1;
+
+                        // Set the background color of the quiz box based on the "completed" property
+                        if (quiz.completed) {
+                            // Check if the quiz box already has the "quiz-box--done" class
+                            if (!quizBox.classList.contains('quiz-box--done')) {
+                                // Add the "quiz-box--done" class to the quiz box element
+                                quizBox.classList.add('quiz-box--done');
+                            }
+                        }
+
+                        var markErrorOfUser = window.localStorage.getItem(`mark_error_${userId}_${quiz.id.problemId}`);
+                        if (markErrorOfUser === 'true') {
+                            if (!quizBox.classList.contains('quiz-box--error')) {
+                                quizBox.classList.add('quiz-box--error');
+                            }
+                        }
+
+                        // Append the quiz box to the quiz map div
+                        quizMapDiv.appendChild(quizBox);
+                    });
+
+                    // Append the quizMapDiv element to the quizMapWrapper element
+                    quizMapContainer.appendChild(quizMapDiv);
+                    quizMapWrapper.appendChild(quizMapContainer);
+
+                    // Insert the quizMapWrapper element before the first child of sequence-content-wrapper
+                    var sequenceContentWrapper = document.querySelector('.sequence-content-wrapper');
+                    sequenceContentWrapper.insertBefore(quizMapWrapper, sequenceContentWrapper.firstChild);
+
+                    // Attach a click event listener to all the quiz-box elements
+                    document.querySelectorAll('.quiz-box').forEach(function (quizBox) {
+                        var problemId = quizBox.getAttribute('data-usage-id');
+                        var seqIndex = quizBox.getAttribute('data-problem-sequence');
+
+                        quizBox.addEventListener('click', function () {
+                            // Scroll to the corresponding problems-wrapper element
+                            var problemWrapper = document.querySelector('.xblock-student_view[data-usage-id="' + problemId + '"]');
+
+                            if (problemWrapper) {
+                                problemWrapper.scrollIntoView({
+                                    behavior: 'smooth'
+                                });
+                            } else {
+                                var selector = 'button#tab_' + seqIndex;
+                                var sequence = document.querySelector(selector);
+
+                                if (sequence) {
+                                    $('.quiz-map').removeClass('absolute-bottom');
+                                    sequence.click();
+                                    setTimeout(function () {
+                                        var problemWrapper = document.querySelector('.xblock-student_view[data-usage-id="' + problemId + '"]');
+                                        if (problemWrapper) {
+                                            // If the problem wrapper element now exists, scroll to it
+                                            problemWrapper.scrollIntoView({
+                                                behavior: 'smooth'
+                                            });
+                                        }
+                                    }, 300);
+                                }
+                            }
+                        });
+                    });
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Error getting quiz map:', error);
+            }
+        });
+    }
+
+    function addFlexNavigator() {
+        var $quizMap = $('.quiz-map-container');
+        var quizMapTop = $quizMap.offset().top;
+
+        $(window).scroll(fixSidebarOnScroll);
+        function fixSidebarOnScroll() {
+            var windowScrollTop = $(window).scrollTop();
+            var widthBrowser = window.innerWidth;
+            var examTimer = $('.exam-timer');
+
+            if (windowScrollTop <= quizMapTop || widthBrowser < 770) {
+                $quizMap.removeClass('sticky');
+            }
+            else if (windowScrollTop >= quizMapTop) {
+                var quizMapBottom = $('.quiz-map')[0].getBoundingClientRect().bottom;
+                var sequenceBottom = $('.sequence')[0].getBoundingClientRect().bottom;
+                if(sequenceBottom - quizMapBottom > 0) {
+                    $quizMap.addClass('sticky');
+                    if($quizMap.hasClass('absolute-bottom')) {
+                        $quizMap.removeClass('absolute-bottom');
+                    }
+
+                    if(examTimer.length > 0) {
+                        $quizMap.css({'top': '145px'});
+                    }
+                } else {
+                    if($quizMap.hasClass('sticky')) {
+                        $quizMap.removeClass('sticky');
+                    }
+
+                    $quizMap.addClass('absolute-bottom');
+                    if(examTimer.length > 0) {
+                        $quizMap.css({'bottom': 'unset', 'top': '145px'});
+                    }
+                }
+            }
+        }
+    }
+
+    function checkNetworkStatus() {
+        if (!navigator.onLine) {
+          alert(gettext('Lost network connection. Please check your connection again'));
+          location.reload();
+        }
+    }
+
+    setInterval(checkNetworkStatus, 10000);
+}
+
+function QuizNavigationMapXBlock(runtime, element) {
+
+}

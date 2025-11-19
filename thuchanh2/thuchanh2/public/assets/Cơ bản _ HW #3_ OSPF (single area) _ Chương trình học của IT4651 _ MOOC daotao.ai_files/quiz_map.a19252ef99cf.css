@@ -1,0 +1,136 @@
+.quiz-map-wrapper {
+    display: table-cell;
+    width: 256px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.quiz-map {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 16px;
+}
+
+.quiz-box {
+    border: 1px solid #D4D4D4;
+    border-radius: 4px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.quiz-map-container {
+    border: 1px solid #D4D4D4;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.quiz-map-user-info {
+    text-align: center;
+    margin-top: 7px;
+}
+
+.quiz-map-user-info span {
+    font-size: 12px !important;
+}
+
+.quiz-box:hover {
+    background: #E5E5E5;
+}
+
+.quiz-box--done {
+    background: #3738E2;
+    color: #fff;
+}
+
+.quiz-box--pending {
+    background: #008100;
+    color: #fff;
+}
+
+.quiz-box--pending:hover {
+    background: #008100;
+}
+
+.quiz-box--error {
+    background: #ac3424;
+    color: #fff;
+}
+
+.quiz-box--done:hover {
+    background: #3738E2;
+}
+
+.quiz-box--error:hover {
+    background: #ac3424;
+}
+
+.sequence-content-wrapper {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+#seq_content > .xblock {
+    margin-left: 50px;
+}
+
+@media (max-width: 768px) {
+    .sequence-content-wrapper {
+        display: block;
+    }
+
+    .quiz-map-wrapper {
+        margin: auto 0;
+    }
+
+    #seq_content {
+        margin-top: 15px;
+    }
+
+    #seq_content > .xblock {
+        margin-left: 0px;
+    }
+}
+
+.quiz-map-container.sticky {
+    position:fixed;
+    top:30px;
+    width: 256px;
+    z-index: 10000;
+}
+
+.quiz-map-container.absolute-bottom {
+    position: fixed;
+    bottom: 500px;
+    width: 256px;
+    z-index: 10000;
+}
+
+.proctored_exam_status {
+    z-index: 10001 !important;
+}
+
+.user-avatar {
+    margin-top: 6px;
+    max-width: 200px;
+    max-height: 180px;
+    width: auto;
+    height: auto;
+}
+
+@media (max-height: 750px) {
+    .quiz-map-container {
+        height: calc(100% - 180px);
+        overflow-y: auto;
+    }
+
+    .quiz-map {
+        padding: 9px;
+    }
+}
