@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web API TÉT</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="app">
+        <header class="app-header">
+            <div class="brand-block">
+                <h1>Web API TÉT</h1>
+                <p class="subtitle">
+                    Async CRUD demo lấy dữ liệu từ JSONPlaceholder sử dụng Axios + async/await
+                </p>
+                <p class="datasource">
+                    Data source:
+                    <a href="https://jsonplaceholder.typicode.com/users" target="_blank" rel="noreferrer">
+                        jsonplaceholder.typicode.com/users
+                    </a>
+                </p>
+            </div>
+            <div class="header-right">
+                <div id="statusChip" class="status-chip status-offline">
+                    API: Checking…
+                </div>
+                <div id="message" class="message"></div>
+            </div>
+        </header>
+        <section class="controls">
+            <div class="search">
+                <span aria-hidden="true" class="search-icon">&#128269;</span>
+                <input id="searchInput" type="search" placeholder="Search users by name…" autocomplete="off" />
+            </div>
+            <div class="control-buttons">
+                <button id="reloadBtn" class="ghost" type="button">
+                    Reload from API
+                </button>
+            </div>
+        </section>
+        <section class="panel">
+            <div class="panel-header">
+                <h2 class="panel-title">Users</h2>
+                <span id="userCountBadge" class="badge">0 user(s)</span>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 32%;">Name</th>
+                            <th style="width: 30%;">Email</th>
+                            <th style="width: 20%;">Phone</th>
+                            <th style="width: 18%;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                        <tr class="loading-row">
+                            <td colspan="4">Loading users…</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+                <div class="pagination-info" id="paginationInfo">
+                    Page 1 of 1
+                </div>
+                <div class="actions">
+                    <button id="prevPage" class="ghost" type="button">Prev</button>
+                    <button id="nextPage" class="ghost" type="button">Next</button>
+                </div>
+            </div>
+        </section>
+        <section class="panel panel-form">
+            <div class="panel-header">
+                <h2 class="panel-title">Add New User</h2>
+                <p class="panel-subtitle">
+                    POST &rarr; API rồi sau đó cập nhật UI và lưu vào localStorage.
+                </p>
+            </div>
+            <form id="createForm">
+                <div class="field">
+                    <label for="createName">Name</label>
+                    <input id="createName" name="name" required placeholder="e.g. Đỗ Hiếu" />
+                </div>
+                <div class="field">
+                    <label for="createEmail">Email</label>
+                    <input id="createEmail" name="email" type="email" required placeholder="e.g. hieu@gmail.com" />
+                </div>
+                <div class="field">
+                    <label for="createPhone">Phone</label>
+                    <input id="createPhone" name="phone" required placeholder="e.g. +84 912 345 678" />
+                </div>
+                <button class="primary" type="submit">Create</button>
+            </form>
+        </section>
+        <footer class="footer">
+            <span>Design by dohieu</span>
+        </footer>
+    </div>
+    <div id="editModal">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h3>Edit User</h3>
+                <p class="subtitle">PUT &rarr; API, Update UI và lưu localStorage</p>
+            </header>
+            <form id="editForm">
+                <div class="field">
+                    <label for="editName">Name</label>
+                    <input id="editName" name="name" required />
+                </div>
+                <div class="field">
+                    <label for="editEmail">Email</label>
+                    <input id="editEmail" name="email" type="email" required />
+                </div>
+                <div class="field">
+                    <label for="editPhone">Phone</label>
+                    <input id="editPhone" name="phone" required />
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="ghost" id="closeEdit">Cancel</button>
+                    <button class="primary" type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="app.js" defer></script>
+</body>
+
+</html>
