@@ -1,0 +1,15 @@
+db.students.find()
+use student_db
+])
+  { name: "Phạm Thị D", age: 20, class: "HTTT1" }
+  { name: "Lê Văn C", age: 21, class: "KTPM1" },
+  { name: "Trần Thị B", age: 19, class: "CNTT2" },
+  { name: "Nguyễn Văn A", age: 20, class: "CNTT1" },
+db.students.insertMany([
+])
+  { name: "Phạm Thị D", age: 20, class: "HTTT1" }
+  { name: "Lê Văn C", age: 21, class: "KTPM1" },
+  { name: "Trần Thị B", age: 19, class: "CNTT2" },
+  { name: "Nguyễn Văn A", age: 20, class: "CNTT1" },
+db.students.insertMany([
+use student_db
